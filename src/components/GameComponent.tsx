@@ -28,7 +28,7 @@ import AlertModal from './AlertModal';
 import WinModal from './WinModal';
 import Timer from './Timer';
 import GameOverModal from './GameOverModal';
-import BackgroundImage from '../images/pixelcut-export (3).jpg'; // Import the custom background image
+import BackgroundImage from '/bg.png'; // Import the custom background image
 import Logo from '../images/Logo.jpg'; // Import the logo image
 import '../effects/tech-background.css'; // Import the custom tech background CSS
 import LogoutModal from './LogoutModal'; // Import the LogoutModal component

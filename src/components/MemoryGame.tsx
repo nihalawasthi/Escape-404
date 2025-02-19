@@ -35,7 +35,7 @@ const MemoryGame: React.FC<MemoryGameProps> = ({ onComplete }) => {
 
   // Add new effect to check moves count
   useEffect(() => {
-    if (moves >= 15) {
+    if (moves > 15) {
       setIsLocked(true);
       setTimeout(() => {
         onComplete(false); // Fail the game when moves reach 15

@@ -1,41 +1,73 @@
 @keyframes flicker {
-  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+  0%,
+  18%,
+  22%,
+  25%,
+  53%,
+  57%,
+  100% {
     opacity: 0.5;
-    filter: none; /* Preserve original colors */
   }
-  20%, 24%, 55% {
+  20%,
+  24%,
+  55% {
     opacity: 0;
-    filter: grayscale(100%); /* Apply grayscale */
   }
-  21%, 23% {
+  21%,
+  23% {
     opacity: 0;
-    filter: grayscale(100%); /* Apply grayscale */
   }
-  26%, 52%, 56% {
+  26%,
+  52%,
+  56% {
     opacity: 0;
-    filter: grayscale(100%); /* Apply grayscale */
   }
 }
 
-@keyframes flicker-alternate {
-  0%, 18%, 22%, 25%, 53%, 57%, 100% {
-    opacity: 0.4;
+.login-container {
+  background-color: black;
+}
+
+.login-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../public/bg.png");
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  z-index: 1;
+}
+
+/* Use the same animation timing as the light effect */
+.light-effect {
+  animation: flicker 2s infinite;
+}
+
+/* Sync the background with the light effect */
+@keyframes backgroundSync {
+  0%,
+  18%,
+  22%,
+  25%,
+  53%,
+  57%,
+  100% {
+    opacity: 0.3;
   }
-  20%, 24%, 55% {
-    opacity: 1;
-  }
-  21%, 23% {
-    opacity: 0.8;
-  }
-  26%, 52%, 56% {
-    opacity: 0.6;
+  20%,
+  21%,
+  23%,
+  24%,
+  26%,
+  52%,
+  55%,
+  56% {
+    opacity: 0;
   }
 }
 
-.flicker {
-  animation: flicker 2.0s infinite;
+.login-container::before {
+  animation: backgroundSync 2s infinite;
 }
 
-.flicker-alternate {
-  animation: flicker-alternate 2.0s infinite;
-}
