@@ -13,6 +13,11 @@ const LostGamePage = () => {
     await loadSlim(engine);
   }, []);
 
+  const handleRetry = () => {
+    navigate('/game'); // Redirect to the game page
+    window.location.reload(); // Refresh the game page
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-800 to-gray-900 flex items-center justify-center relative overflow-hidden">
       <Particles
@@ -66,6 +71,13 @@ const LostGamePage = () => {
             Thank you for playing the game.
           </p>
         </div>
+        <button
+          onClick={handleRetry}
+          className="px-8 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-all duration-300 mb-4 mr-2"
+          style={{ marginLeft: '-10px' }} // Shift 10px to the left
+        >
+          Retry
+        </button>
         <button
           onClick={() => navigate('/')}
           className="px-8 py-3 bg-white/20 hover:bg-white/30 text-white rounded-lg transition-all duration-300"
