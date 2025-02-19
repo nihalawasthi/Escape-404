@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.login{
+    background: url('public/bg.png') no-repeat center center fixed;
+    background-size: cover;
+}

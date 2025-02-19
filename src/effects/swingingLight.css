@@ -1,0 +1,26 @@
+@keyframes swing {
+  0% { transform: rotate(5deg); }
+  50% { transform: rotate(-5deg); }
+  100% { transform: rotate(5deg); }
+}
+
+@keyframes flicker {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    opacity: 0.4;
+  }
+  20%, 24%, 55% {
+    opacity: 0;
+  }
+  21%, 23% {
+    opacity: 0;
+  }
+  26%, 52%, 56% {
+    opacity: 0;
+  }
+}
+
+.flicker {
+  animation: flicker 2.0s infinite;
+}
+
+

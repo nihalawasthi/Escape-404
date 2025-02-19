@@ -1,0 +1,25 @@
+@keyframes loading-bar {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes loading-bar-reverse {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-loading-bar {
+  animation: loading-bar 4s linear infinite;
+}
+
+.animate-loading-bar-reverse {
+  animation: loading-bar-reverse 4s linear infinite;
+}

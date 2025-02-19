@@ -1,0 +1,41 @@
+@keyframes flicker {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    opacity: 0.5;
+    filter: none; /* Preserve original colors */
+  }
+  20%, 24%, 55% {
+    opacity: 0;
+    filter: grayscale(100%); /* Apply grayscale */
+  }
+  21%, 23% {
+    opacity: 0;
+    filter: grayscale(100%); /* Apply grayscale */
+  }
+  26%, 52%, 56% {
+    opacity: 0;
+    filter: grayscale(100%); /* Apply grayscale */
+  }
+}
+
+@keyframes flicker-alternate {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    opacity: 0.4;
+  }
+  20%, 24%, 55% {
+    opacity: 1;
+  }
+  21%, 23% {
+    opacity: 0.8;
+  }
+  26%, 52%, 56% {
+    opacity: 0.6;
+  }
+}
+
+.flicker {
+  animation: flicker 2.0s infinite;
+}
+
+.flicker-alternate {
+  animation: flicker-alternate 2.0s infinite;
+}
