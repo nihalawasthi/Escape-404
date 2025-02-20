@@ -21,6 +21,10 @@ const ContentModal: React.FC<ContentModalProps> = ({ isOpen, onClose, onSubmit, 
     }, 1000);
   };
 
+  const handleClose = () => {
+    onClose(); // Just close the modal without any submission
+  };
+
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
       <div className="bg-gray-900 rounded-lg p-8 max-w-md w-full mx-4">
@@ -32,7 +36,7 @@ const ContentModal: React.FC<ContentModalProps> = ({ isOpen, onClose, onSubmit, 
         </p>
         
         {content.type === 'puzzle' ? (
-          <MemoryGame onComplete={handleGameComplete} />
+          <MemoryGame onComplete={handleGameComplete} onClose={handleClose} />
         ) : (
           <div className="mt-6 flex justify-end space-x-3">
             <button

@@ -10,9 +10,10 @@ interface Card {
 
 interface MemoryGameProps {
   onComplete: (success: boolean) => void;
+  onClose: () => void;
 }
 
-const MemoryGame: React.FC<MemoryGameProps> = ({ onComplete }) => {
+const MemoryGame: React.FC<MemoryGameProps> = ({ onComplete, onClose }) => {
   const [cards, setCards] = useState<Card[]>([]);
   const [flippedCards, setFlippedCards] = useState<number[]>([]);
   const [moves, setMoves] = useState(0);
@@ -40,6 +41,9 @@ const MemoryGame: React.FC<MemoryGameProps> = ({ onComplete }) => {
       setTimeout(() => {
         onComplete(false); // Fail the game when moves reach 15
       }, 1000);
+      setTimeout(() => {
+        onComplete(false); // Close the game after 3 seconds
+      }, 3000);
     }
   }, [moves]);
 
@@ -101,6 +105,10 @@ const MemoryGame: React.FC<MemoryGameProps> = ({ onComplete }) => {
     }
   };
 
+  const handleClose = () => {
+    onClose(); // Use the provided onClose function from parent
+  };
+
   return (
     <div className="p-4 bg-gray-800 rounded-lg">
       <div className="mb-4 text-center">
@@ -113,6 +121,12 @@ const MemoryGame: React.FC<MemoryGameProps> = ({ onComplete }) => {
             Too many moves! Game over.
           </p>
         )}
+        <button
+          onClick={handleClose}
+          className="mt-2 px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition-colors"
+        >
+          Close
+        </button>
       </div>
       <div className="grid grid-cols-4 gap-2">
         {cards.map((card) => (
@@ -134,4 +148,4 @@ const MemoryGame: React.FC<MemoryGameProps> = ({ onComplete }) => {
   );
 };
 
-export default MemoryGame; 
+export default MemoryGame;
